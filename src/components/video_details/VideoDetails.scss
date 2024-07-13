@@ -1,0 +1,34 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.current-video {
+  &__player {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+.video-info {
+  padding: $mobile-padding;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    border-top: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  &__channel-name {
+    width: 50%;
+  }
+  &__list-item {
+    width: 50%;
+    margin: 0.5rem 0;
+    color: #e1e1e1;
+    font: $mobile-label;
+  }
+  &__description {
+    font-size: 0.82rem;
+  }
+}

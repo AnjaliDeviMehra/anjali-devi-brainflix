@@ -1,13 +1,24 @@
-@use "../../styles/partials/typography.scss" as *;
+@use "./typography.scss" as *;
+@use "./variables.scss" as *;
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   margin: 0;
   padding: 0;
   font-family: "avenir";
   font-weight: 400;
+  color: #323232;
+}
+
+h1 {
+  font: 700 1.5rem/2rem "avenir";
+}
+h3 {
+  font: $mobile-subheading;
 }

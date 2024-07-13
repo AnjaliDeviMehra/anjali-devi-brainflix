@@ -1,7 +1,26 @@
 import React from "react";
+import "./VideoList.scss";
 
-const VideoList = () => {
-  return <div></div>;
+const VideoList = ({ videos }) => {
+  return (
+    <>
+      <ul className="video-list">
+        {videos.map((video) => {
+          return (
+            <li key={video.id} className="video-list__item">
+              <section className="video-list__container">
+                <img src={video.image} className="video-list__image" />
+              </section>
+              <section className="video-list__info">
+                <h3>{video.title}</h3>
+                <p className="video-list__channel">{video.channel}</p>
+              </section>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
 };
 
 export default VideoList;
