@@ -1,13 +1,19 @@
 import React from "react";
 import "./VideoList.scss";
 
-const VideoList = ({ videos }) => {
+const VideoList = ({ videos, changeCurrentVideo }) => {
   return (
     <>
       <ul className="video-list">
         {videos.map((video) => {
           return (
-            <li key={video.id} className="video-list__item">
+            <li
+              onClick={() => {
+                changeCurrentVideo(video.id);
+              }}
+              key={video.id}
+              className="video-list__item"
+            >
               <section className="video-list__container">
                 <img src={video.image} className="video-list__image" />
               </section>
