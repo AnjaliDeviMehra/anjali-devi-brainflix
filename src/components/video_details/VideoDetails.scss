@@ -21,14 +21,25 @@
   }
   &__channel-name {
     width: 50%;
+    margin: 0.5rem 0;
   }
   &__list-item {
     width: 50%;
     margin: 0.5rem 0;
     color: #e1e1e1;
-    font: $mobile-label;
+    font: 700 0.75rem/1.25rem "avenir";
+    display: flex;
   }
+  &__review {
+    margin-left: 0.4rem;
+    vertical-align: top;
+  }
+
   &__description {
     font-size: 0.82rem;
   }
+}
+
+.comments {
+  padding: 0 $mobile-padding;
 }

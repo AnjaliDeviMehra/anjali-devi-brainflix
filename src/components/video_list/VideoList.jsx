@@ -12,7 +12,7 @@ const VideoList = ({ videos }) => {
                 <img src={video.image} className="video-list__image" />
               </section>
               <section className="video-list__info">
-                <h3>{video.title}</h3>
+                <h2>{video.title}</h2>
                 <p className="video-list__channel">{video.channel}</p>
               </section>
             </li>
