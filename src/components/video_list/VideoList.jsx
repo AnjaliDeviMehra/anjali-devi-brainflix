@@ -1,11 +1,15 @@
 import React from "react";
 import "./VideoList.scss";
 
-const VideoList = ({ videos, changeCurrentVideo }) => {
+const VideoList = ({ videos, changeCurrentVideo, currentVideo }) => {
+  const newVideoList = videos.filter((video) => {
+    return video.id !== currentVideo.id;
+  });
   return (
-    <>
+    <section>
+      <h2 className="video-heading">NEXT VIDEOS</h2>
       <ul className="video-list">
-        {videos.map((video) => {
+        {newVideoList.map((video) => {
           return (
             <li
               onClick={() => {
@@ -25,7 +29,7 @@ const VideoList = ({ videos, changeCurrentVideo }) => {
           );
         })}
       </ul>
-    </>
+    </section>
   );
 };
 

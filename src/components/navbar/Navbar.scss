@@ -1,16 +1,19 @@
 @use "../../styles/partials/variables.scss" as *;
 @use "../../styles/partials/typography.scss" as *;
 @use "../../styles/partials/mixins.scss" as *;
+@use "../../styles/partials/global.scss";
 
 .nav {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: $mobile-padding;
 
   @include tablet {
+    display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    justify-content: space-between;
     padding: 1rem $tablet-padding;
   }
   @include desktop {
@@ -22,27 +25,34 @@
     width: 7.5rem;
   }
 
-  &__search {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  &__form-container {
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__search {
+    width: 85%;
     position: relative;
     margin: 1rem 0;
 
     @include tablet {
-      margin: 0 0 0 10rem;
+      margin: 0;
       width: auto;
     }
     @include desktop {
-      margin-left: 20rem;
     }
   }
 
   &__search-input {
+    outline: none;
     height: 2rem;
     padding-left: 2rem;
-    width: 85%;
+    width: 100%;
     border: 1px solid #e1e1e1;
     border-radius: 4px;
     font: $mobile-label;
@@ -50,10 +60,17 @@
 
     @include tablet {
       height: 2.5rem;
-      width: 13rem;
+
       font: $tablet-label;
       padding-left: 2.5rem;
     }
+
+    @include desktop {
+      width: 16rem;
+    }
+  }
+  &__search-input:focus {
+    border: 2px solid #0095ff;
   }
 
   &__search-icon {
@@ -65,6 +82,22 @@
 
     @include tablet {
       padding: 0.6rem;
+    }
+  }
+
+  &__mohan-image {
+    @extend .mohan-image;
+    margin: 1rem auto 0 0.6rem;
+
+    @include tablet {
+      margin: 0;
+      order: 3;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    @include desktop {
+      margin-left: 1rem;
     }
   }
 }

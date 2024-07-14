@@ -1,36 +1,62 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/global.scss";
+@use "../../styles/partials/mixins.scss" as *;
 
 .current-video {
-  &__player {
-    width: 100vw;
-    height: auto;
+  @include desktop {
+    width: 70%;
+    border-right: 1px solid #e1e1e1;
   }
 }
 
 .video-info {
   padding: $mobile-padding;
 
-  &__list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 1rem 0;
+  @include tablet {
+    padding: 2rem 2.25rem 1.5rem;
+  }
+
+  @include desktop {
+    padding: 2.25rem 0;
+  }
+
+  &__header {
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
+    display: flex;
+
+    @include tablet {
+      border-top: none;
+      justify-content: space-between;
+    }
+    @include desktop {
+      padding-right: 1.5rem;
+    }
+  }
+  &__list {
+    list-style: none;
+    margin-right: 2rem;
+
+    @include tablet {
+      display: flex;
+      margin-right: 0;
+    }
   }
   &__channel-name {
-    width: 50%;
     margin: 0.5rem 0;
   }
   &__list-item {
-    width: 50%;
     margin: 0.5rem 0;
+    font: 600 0.7rem/1.25rem "avenir";
     color: #afafaf;
-    font: 700 0.75rem/1.25rem "avenir";
     display: flex;
+
+    @include tablet {
+      margin-left: 1rem;
+    }
   }
+
   &__review {
     margin-left: 0.4rem;
     vertical-align: top;
@@ -39,46 +65,125 @@
   &__description {
     font-size: 0.82rem;
     line-height: 1.13rem;
+    margin-top: 1rem;
+
+    @include tablet {
+      font-size: 0.88rem;
+      line-height: 1.4rem;
+      padding-right: 2rem;
+    }
   }
 }
 
 .add-comments {
   padding: 0 $mobile-padding;
 
+  @include tablet {
+    padding: 0 $tablet-padding;
+  }
+  @include desktop {
+    padding: 1.5rem 0;
+  }
   &__form-container {
     display: flex;
-    margin-top: 1rem;
+
+    @include desktop {
+      margin: 1rem 1.5rem 0 0;
+    }
   }
   &__user-image {
     @extend .mohan-image;
-    position: static;
+
     margin-top: 1.2rem;
+
+    @include tablet {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
   }
   &__form {
     margin-left: 1rem;
+
+    @include tablet {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
   }
-  &__label {
-    color: #afafaf;
-    font: $mobile-label;
-  }
-  &__input {
-    border: 1px solid #e1e1e1;
-    background-color: #fafafa;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.5rem;
-    width: 100%;
+
+  &__button {
+    @extend .button;
+
+    @include tablet {
+      margin: 1.3rem 0 0 1rem;
+    }
   }
 }
 
+.input-section {
+  @include tablet {
+    width: 28rem;
+  }
+
+  &__label {
+    color: #afafaf;
+    font: $mobile-label;
+    word-spacing: 0.1rem;
+
+    &__tablet {
+      font: $tablet-label;
+    }
+  }
+  &__input {
+    outline: none;
+    border: 1px solid #e1e1e1;
+    background-color: #fafafa;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 6rem;
+    border-radius: 4px;
+    resize: none;
+
+    @include tablet {
+      height: 2.5rem;
+      padding: 0.5rem 1rem;
+      overflow: hidden;
+    }
+
+    &:focus {
+      border: 2px solid #0095ff;
+    }
+
+    &:active {
+      border: 2px solid #0095ff;
+    }
+    &--error {
+      border: 1px solid #d22d2d;
+    }
+  }
+}
 .comments {
   list-style: none;
   margin-top: 1rem;
   border-bottom: 1px solid #e1e1e1;
 
+  @include desktop {
+    border-bottom: none;
+  }
+
   &__list-item {
     display: flex;
     padding: 1rem 0;
     border-top: 1px solid #e1e1e1;
+
+    @include tablet {
+      padding: 1.5rem 0;
+    }
+
+    @include desktop {
+      padding: 1.5rem 1.5rem 1.5rem 0;
+    }
   }
 
   &__image-container {
@@ -86,6 +191,10 @@
     height: 2rem;
     border-radius: 50%;
     background-color: #e1e1e1;
+    @include tablet {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
   }
   &__section {
     margin-left: 1rem;
@@ -97,9 +206,22 @@
     justify-content: space-between;
     margin-bottom: 0.5rem;
   }
+  &__date {
+    font: 600 0.7rem/1.25rem "avenir";
+    color: #afafaf;
 
+    @include tablet {
+      font-size: 0.8rem;
+    }
+  }
   &__comment {
     font-size: 0.82rem;
     line-height: 1.23rem;
+
+    @include tablet {
+      padding-right: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.4rem;
+    }
   }
 }

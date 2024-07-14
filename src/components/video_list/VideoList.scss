@@ -1,8 +1,29 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
+.video-heading {
+  color: #afafaf;
+  padding: 1rem 1rem 0;
+
+  @include tablet {
+    padding: 2.25rem 2.25rem 0;
+  }
+
+  @include desktop {
+    padding: 2.25rem 1.5rem 0;
+  }
+}
 .video-list {
   list-style: none;
-  padding: 1.5rem $mobile-padding;
+  padding: 1rem $mobile-padding;
+
+  @include tablet {
+    padding: 1.5rem $tablet-padding;
+  }
+
+  @include desktop {
+    padding: 1.5rem 0 1.5rem 1.5rem;
+  }
 
   &__item {
     display: flex;
@@ -11,7 +32,7 @@
   &__container {
     background-color: #e1e1e1;
     width: 8rem;
-    height: 5rem;
+    height: 4.5rem;
   }
   &__image {
     width: 8rem;

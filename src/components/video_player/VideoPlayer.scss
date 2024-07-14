@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.video-player {
+  width: 100vw;
+  height: auto;
+
+  @include tablet {
+    background-color: #000000;
+    padding: 0 $tablet-padding;
+  }
+
+  @include desktop {
+    padding: 0 12rem;
+  }
+}
