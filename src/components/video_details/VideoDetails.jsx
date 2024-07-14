@@ -8,14 +8,14 @@ import add_comment from "../../assets/icons/add_comment.svg";
 
 const VideoDetails = ({ currentVideo }) => {
   const [isEmpty, setIsEmpty] = useState(false);
-  function getDate(timestamp) {
+
+  const getDate = (timestamp) => {
     const date = new Date(timestamp);
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
-
     return `${month}/${day}/${year}`;
-  }
+  };
 
   const handleChange = (e) => {
     if (e.target.value.trim() === "") {

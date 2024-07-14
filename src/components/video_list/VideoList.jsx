@@ -5,6 +5,7 @@ const VideoList = ({ videos, changeCurrentVideo, currentVideo }) => {
   const newVideoList = videos.filter((video) => {
     return video.id !== currentVideo.id;
   });
+
   return (
     <section>
       <h2 className="video-heading">NEXT VIDEOS</h2>
