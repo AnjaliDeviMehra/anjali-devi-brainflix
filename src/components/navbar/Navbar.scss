@@ -44,8 +44,6 @@
       margin: 0;
       width: auto;
     }
-    @include desktop {
-    }
   }
 
   &__search-input {
@@ -60,7 +58,6 @@
 
     @include tablet {
       height: 2.5rem;
-
       font: $tablet-label;
       padding-left: 2.5rem;
     }
