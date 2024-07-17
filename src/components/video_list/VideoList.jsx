@@ -1,21 +1,21 @@
 import React from "react";
 import "./VideoList.scss";
 
-const VideoList = ({ videos, changeCurrentVideo, currentVideo }) => {
-  const newVideoList = videos.filter((video) => {
-    return video.id !== currentVideo.id;
-  });
+const VideoList = ({ videos}) => {
+  // const newVideoList = videos.filter((video) => {
+  //   return video.id !== currentVideo.id;
+  // });
 
   return (
     <section>
       <h2 className="video-heading">NEXT VIDEOS</h2>
       <ul className="video-list">
-        {newVideoList.map((video) => {
+        {videos.map((video) => {
           return (
             <li
-              onClick={() => {
-                changeCurrentVideo(video.id);
-              }}
+              // onClick={() => {
+              //   changeCurrentVideo(video.id);
+              // }}
               key={video.id}
               className="video-list__item"
             >
