@@ -6,7 +6,7 @@
   padding: 1rem 1rem 0;
 
   @include tablet {
-    padding: 2.25rem 2.25rem 0;
+    padding: 2rem 2.25rem 0;
   }
 
   @include desktop {
@@ -28,7 +28,7 @@
   &__item {
     display: flex;
     margin-bottom: 1rem;
-    color:#323232;
+    color: #323232;
     text-decoration: none;
   }
   &__container {

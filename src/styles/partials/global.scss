@@ -26,6 +26,10 @@ h1 {
 }
 h2 {
   font: $mobile-subheading;
+
+  @include tablet {
+    font: $tablet-subheading;
+  }
 }
 
 .mohan-image {

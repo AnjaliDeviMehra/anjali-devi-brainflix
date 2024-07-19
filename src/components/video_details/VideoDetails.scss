@@ -5,7 +5,9 @@
 
 .current-video {
   @include desktop {
-    width: 70%;
+    width: 60%;
+    padding-left: 8rem;
+
     border-right: 1px solid #e1e1e1;
   }
 }
@@ -18,7 +20,7 @@
   }
 
   @include desktop {
-    padding: 2.25rem 0;
+    padding: 2.25rem 0 0;
   }
 
   &__header {
@@ -48,12 +50,17 @@
   }
   &__list-item {
     margin: 0.5rem 0;
-    font: 600 0.7rem/1.25rem "avenir";
+    font: 400 0.7rem/1.25rem "avenir";
     color: #afafaf;
     display: flex;
 
     @include tablet {
       margin-left: 1rem;
+      align-items: center;
+    }
+    @include desktop {
+      margin-left: 2rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -61,7 +68,10 @@
     margin-left: 0.4rem;
     vertical-align: top;
   }
-
+  &__icon {
+    height: 1rem;
+    width: 1.5rem;
+  }
   &__description {
     font-size: 0.82rem;
     line-height: 1.13rem;
@@ -86,10 +96,8 @@
   }
   &__form-container {
     display: flex;
-
-    @include desktop {
-      margin: 1rem 1.5rem 0 0;
-    }
+    width: 100%;
+    margin-top: 1rem;
   }
   &__user-image {
     @extend .mohan-image;
@@ -106,8 +114,13 @@
 
     @include tablet {
       display: flex;
+      flex-grow: 2;
       width: 100%;
       justify-content: space-between;
+    }
+
+    @include desktop {
+      padding-right: 1.5rem;
     }
   }
 
@@ -117,17 +130,20 @@
     @include tablet {
       margin: 1.3rem 0 0 1rem;
     }
+    @include desktop {
+      margin-right: auto;
+    }
   }
 }
 
 .input-section {
   @include tablet {
-    width: 28rem;
+    width: 70%;
   }
 
   &__label {
     color: #afafaf;
-    font: $mobile-label;
+    font: $mobile-subheading;
     word-spacing: 0.1rem;
 
     &__tablet {
@@ -144,6 +160,11 @@
     height: 6rem;
     border-radius: 4px;
     resize: none;
+    color: #323232;
+
+    &::placeholder {
+      color: #323232;
+    }
 
     @include tablet {
       height: 2.5rem;
@@ -188,7 +209,7 @@
 
   &__image-container {
     width: 2rem;
-    height: 2rem;
+    height: 1.9rem;
     border-radius: 50%;
     background-color: #e1e1e1;
     @include tablet {
@@ -207,7 +228,7 @@
     margin-bottom: 0.5rem;
   }
   &__date {
-    font: 600 0.7rem/1.25rem "avenir";
+    font: 400 0.7rem/1.25rem "avenir";
     color: #afafaf;
 
     @include tablet {

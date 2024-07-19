@@ -4,6 +4,7 @@
 .video-sections {
   @include desktop {
     display: flex;
-    padding: 0 8rem;
+    // padding: 0 8rem;
+    flex-wrap: wrap;
   }
 }

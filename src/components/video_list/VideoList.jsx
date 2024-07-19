@@ -2,7 +2,7 @@ import React from "react";
 import "./VideoList.scss";
 import { Link } from "react-router-dom";
 
-const VideoList = ({ videos}) => {
+const VideoList = ({ videos }) => {
   // const newVideoList = videos.filter((video) => {
   //   return video.id !== currentVideo.id;
   // });
@@ -14,8 +14,7 @@ const VideoList = ({ videos}) => {
         {videos.map((video) => {
           return (
             <Link
-             to={`videos/${video.id}`}
-        
+              to={`videos/${video.id}`}
               key={video.id}
               className="video-list__item"
             >
