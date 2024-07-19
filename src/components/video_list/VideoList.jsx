@@ -1,5 +1,6 @@
 import React from "react";
 import "./VideoList.scss";
+import { Link } from "react-router-dom";
 
 const VideoList = ({ videos}) => {
   // const newVideoList = videos.filter((video) => {
@@ -12,10 +13,9 @@ const VideoList = ({ videos}) => {
       <ul className="video-list">
         {videos.map((video) => {
           return (
-            <li
-              // onClick={() => {
-              //   changeCurrentVideo(video.id);
-              // }}
+            <Link
+             to={`videos/${video.id}`}
+        
               key={video.id}
               className="video-list__item"
             >
@@ -26,7 +26,7 @@ const VideoList = ({ videos}) => {
                 <h2>{video.title}</h2>
                 <p className="video-list__channel">{video.channel}</p>
               </section>
-            </li>
+            </Link>
           );
         })}
       </ul>

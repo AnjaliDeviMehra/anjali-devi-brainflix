@@ -1,32 +1,33 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import Navbar from "../navbar/Navbar";
-import VideoList from "../video_list/VideoList";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 import VideoDetails from "../video_details/VideoDetails";
 import VideoPlayer from "../video_player/VideoPlayer";
-const HomePage = () => {
-  const api_key = "411e88d0-a205-4e56-a9c5-66787f2553c5";
-  const url = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
-  const [videos, setVideos] = useState([]);
-  const [currentVideo, setCurrentVideo] = useState();
-
-  useEffect(() => {
-    const getVideosData = async () => {
-      const response = await axios.get(`${url}videos?api_key=${api_key}`);
-
-      setVideos(response.data);
-      console.log(videos)
-    
-
-    };
-
-    getVideosData();
-  }, []);
-
-
-  console.log(videos)
+const HomePage = ({setCurrentId, api_key , url, }) => {
+  
+  const [currentVideo, setCurrentVideo]=useState(null);
+  const {id} = useParams();
+  
  
+  const getVideo = async()=>{ 
+    const response = await axios.get(`${url}videos/${id}?api_key=${api_key} `)
+    setCurrentVideo(response.data);
+    
+  }
+  useEffect(()=>{
+  try{
+    getVideo();
+    setCurrentId(id);
+    // const newVideoList = videos.filter((video)=> video.id != id);
+    // console.log(id)
+    // // setVideos(newVideoList)
+    // console.log(videos)
+  }
+  catch(e){
+    console.log(e);
+    
+  }
+ },[id])
 
   // function changeCurrentVideo(videoId) {
   //   const newVideo = videos.find((video) => {
@@ -35,18 +36,18 @@ const HomePage = () => {
 
   //   setCurrentVideo(newVideo);
   // }
+//  if(!currentVideo){
+//   return "Loading....."
+//  }
+
   return (
     <>
-      <Navbar />
-     <VideoPlayer currentVideo={currentVideo} />
+    {currentVideo && ( <><VideoPlayer  currentVideo ={currentVideo}/>
       <div className="video-sections">
-        {/* <VideoDetails currentVideo={currentVideo} /> */}
-        <VideoList
-          videos={videos}
-          // changeCurrentVideo={changeCurrentVideo}
-          // currentVideo={currentVideo}
-        /> 
-      </div> 
+        <VideoDetails currentVideo ={currentVideo}/>
+        
+      </div> </>)}
+     
     </>
   );
 };

@@ -6,7 +6,7 @@ const VideoPlayer = ({ currentVideo }) => {
     <>
       <video
         className="video-player"
-        // poster={currentVideo.image}
+        poster={currentVideo.image}
         controls
       ></video>
     </>

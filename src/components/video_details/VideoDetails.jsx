@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./VideoDetails.scss";
 import "../../styles/partials/global.scss";
 import likes from "../../assets/icons/likes.svg";
 import views from "../../assets/icons/views.svg";
 import mohan from "../../assets/images/Mohan-muruge.jpg";
 import add_comment from "../../assets/icons/add_comment.svg";
+import axios from "axios";
+import { Navigate, redirect, useParams } from "react-router-dom";
 
-const VideoDetails = ({ currentVideo }) => {
+const VideoDetails = ({ currentVideo}) => {
+
   const [isEmpty, setIsEmpty] = useState(false);
 
   const getDate = (timestamp) => {
     const date = new Date(timestamp);
     const today = new Date();
-    console.log(today);
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
@@ -28,7 +30,14 @@ const VideoDetails = ({ currentVideo }) => {
     }
   };
   return (
+    <>
+
+
+  {currentVideo && (<>
     <section className="current-video">
+   
+    
+   
       <article className="video-info">
         <h1>{currentVideo.title}</h1>
         <header className="video-info__header">
@@ -102,9 +111,13 @@ const VideoDetails = ({ currentVideo }) => {
             );
           })}
         </ul>
-      </section>
+      </section> 
     </section>
-  );
+    
+    </>)}
+      
+    </>
+    );
 };
 
 export default VideoDetails;
