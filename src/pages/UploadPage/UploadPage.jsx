@@ -1,11 +1,11 @@
 import React from "react";
-import "./Upload.scss";
+import "./UploadPage.scss";
 import "../../styles/partials/global.scss";
 import upload_video from "../../assets/images/Upload-video-preview.jpg";
 import publish from "../../assets/icons/publish.svg";
 import { Link } from "react-router-dom";
 
-export const Upload = () => {
+const UploadPage = () => {
   const handleClick = () => {
     alert("Video Uploaded");
   };
@@ -55,3 +55,5 @@ export const Upload = () => {
     </main>
   );
 };
+
+export default UploadPage;

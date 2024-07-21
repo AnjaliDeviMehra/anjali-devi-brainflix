@@ -4,10 +4,10 @@ import search from "../../assets/icons/search.svg";
 import upload from "../../assets/icons/upload.svg";
 import mohan from "../../assets/images/Mohan-muruge.jpg";
 import "../../styles/partials/global.scss";
-import "./Navbar.scss";
+import "./Nav.scss";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Nav() {
   return (
     <>
       <section className="nav">
@@ -35,4 +35,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Nav;

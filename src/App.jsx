@@ -3,11 +3,9 @@ import "./App.scss";
 import "./styles/partials/global.scss";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-
 import axios from "axios";
-
-import Navbar from "./components/Navbar/Navbar";
-import { Upload } from "./components/Upload/Upload";
+import Nav from "./components/Nav/Nav";
+import UploadPage from "./pages/UploadPage/UploadPage";
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -34,7 +32,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Nav />
         <Routes>
           <Route path="/" element={<Navigate to={`./videos/${defaultId}`} />} />
           <Route
@@ -48,7 +46,7 @@ function App() {
               />
             }
           />
-          <Route path="/upload" element={<Upload />} />
+          <Route path="/upload" element={<UploadPage />} />
         </Routes>
       </BrowserRouter>
     </>
