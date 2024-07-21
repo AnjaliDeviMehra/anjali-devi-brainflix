@@ -1,0 +1,105 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/global.scss";
+@use "../../styles/partials/mixins.scss" as *;
+
+.upload {
+  padding: $mobile-padding;
+  border-top: 1px solid #e1e1e1;
+
+  @include tablet {
+    padding: $tablet-padding;
+  }
+
+  @include desktop {
+    padding: 2rem $desktop-padding;
+  }
+  &__heading {
+    @include tablet {
+      border-bottom: 1px solid #e1e1e1;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  &__label {
+    color: #afafaf;
+    padding: 1rem 0 0.2rem;
+  }
+
+  &__form-container {
+    @include desktop {
+      display: flex;
+    }
+  }
+  &__image-container {
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      width: 50%;
+      height: auto;
+    }
+
+    @include desktop {
+      width: 30%;
+      height: 100%;
+    }
+  }
+
+  &__thumbnail {
+    width: 100%;
+  }
+
+  &__form {
+    @include desktop {
+      flex-grow: 2;
+      margin-left: 2rem;
+    }
+  }
+  &__input {
+    @extend .input-fields;
+
+    @include desktop {
+      padding-bottom: 0.35rem;
+    }
+  }
+
+  &__links {
+    @include tablet {
+      display: flex;
+      justify-content: end;
+      margin-top: 1rem;
+      border-top: 1px solid #e1e1e1;
+      padding-top: 1.5rem;
+      align-items: center;
+    }
+  }
+  &__publish {
+    @extend .button;
+    display: inline-block;
+    margin-top: 1rem;
+    padding-top: 0.7rem;
+    order: 2;
+
+    @include tablet {
+      display: inline-block;
+      margin: 0 0 0 4rem;
+    }
+  }
+  &__icon {
+    @extend .button__icon;
+  }
+  &__cancel {
+    color: #0095ff;
+    text-decoration: none;
+    font: $mobile-label;
+    width: 3rem;
+    display: block;
+    margin: 1rem auto;
+
+    @include tablet {
+      display: inline-block;
+      margin: 0;
+    }
+  }
+}

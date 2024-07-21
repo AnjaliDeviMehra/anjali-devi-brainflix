@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import VideoDetails from "../video_details/VideoDetails";
 import VideoPlayer from "../video_player/VideoPlayer";
 const HomePage = ({ setCurrentId, api_key, url }) => {
   const [currentVideo, setCurrentVideo] = useState(null);
   const { id } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   const getVideo = async () => {
     const response = await axios.get(`${url}videos/${id}?api_key=${api_key} `);

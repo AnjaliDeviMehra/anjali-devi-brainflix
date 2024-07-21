@@ -8,15 +8,18 @@ import {
   Navigate,
   useParams,
 } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import VideoDetails from "./components/video_details/VideoDetails";
 import axios from "axios";
 import VideoList from "./components/video_list/VideoList";
 import Navbar from "./components/navbar/Navbar";
+import { Upload } from "./components/upload/Upload";
 
 function App() {
   const [videos, setVideos] = useState([]);
   const [currentId, setCurrentId] = useState();
+
   const api_key = "411e88d0-a205-4e56-a9c5-66787f2553c5";
   const url = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
   useEffect(() => {
@@ -39,6 +42,7 @@ function App() {
     <>
       <BrowserRouter>
         <Navbar />
+
         <div className="video-sections">
           <Routes>
             <Route
@@ -56,7 +60,9 @@ function App() {
                 />
               }
             />
+            <Route path="/upload" element={<Upload />} />
           </Routes>
+
           <VideoList videos={newVideoList} />
         </div>
       </BrowserRouter>
