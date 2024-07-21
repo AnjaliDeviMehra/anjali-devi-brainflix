@@ -9,10 +9,10 @@ export const Upload = () => {
   const handleClick = () => {
     alert("Video Uploaded");
   };
+
   return (
     <main className="upload">
       <h1 className="upload__heading">Upload Video</h1>
-
       <section className="upload__form-container">
         <div className="upload__image-container">
           <h2 className="upload__label">VIDEO THUMBNAIL</h2>

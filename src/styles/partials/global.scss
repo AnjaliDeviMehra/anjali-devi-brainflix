@@ -80,14 +80,13 @@ h2 {
   resize: none;
   color: #323232;
 
-  &::placeholder {
-    color: #323232;
-    font: 400 0.81rem/1.25rem "avenir";
-  }
-
   @include tablet {
     padding: 0.5rem 1rem;
     overflow: hidden;
+  }
+  &::placeholder {
+    color: #323232;
+    font: 400 0.81rem/1.25rem "avenir";
   }
 
   &:focus {

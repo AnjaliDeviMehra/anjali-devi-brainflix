@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+
+.video-sections {
+  @include desktop {
+    display: flex;
+    padding: 0 8rem;
+  }
+}

@@ -14,6 +14,7 @@
   @include desktop {
     padding: 2rem $desktop-padding;
   }
+
   &__heading {
     @include tablet {
       border-bottom: 1px solid #e1e1e1;

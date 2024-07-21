@@ -6,8 +6,6 @@
 .current-video {
   @include desktop {
     width: 60%;
-    padding-left: 8rem;
-
     border-right: 1px solid #e1e1e1;
   }
 }
@@ -157,8 +155,12 @@
     @include tablet {
       height: 2.5rem;
     }
+    &__input--error {
+      @extend .input-fields--error;
+    }
   }
 }
+
 .comments {
   list-style: none;
   margin-top: 1rem;

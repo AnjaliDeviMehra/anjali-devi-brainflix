@@ -5,15 +5,12 @@ import likes from "../../assets/icons/likes.svg";
 import views from "../../assets/icons/views.svg";
 import mohan from "../../assets/images/Mohan-muruge.jpg";
 import add_comment from "../../assets/icons/add_comment.svg";
-import axios from "axios";
-import { Navigate, redirect, useParams } from "react-router-dom";
 
 const VideoDetails = ({ currentVideo }) => {
   const [isEmpty, setIsEmpty] = useState(false);
 
   const getDate = (timestamp) => {
     const date = new Date(timestamp);
-    const today = new Date();
     const day = date.getDate();
     const month = date.getMonth() + 1;
     const year = date.getFullYear();
@@ -77,14 +74,14 @@ const VideoDetails = ({ currentVideo }) => {
                     </label>
                     <textarea
                       placeholder="Add a new comment"
+                      onBlur={handleChange}
+                      onChange={handleChange}
                       className={`input-section__input ${
                         isEmpty ? "input-section__input--error" : ""
                       }`}
-                      onBlur={handleChange}
-                      onChange={handleChange}
                     ></textarea>
                   </section>
-                  <button className="add-comments__button">
+                  <button className="add-comments__button ">
                     <img
                       src={add_comment}
                       className="button__icon"

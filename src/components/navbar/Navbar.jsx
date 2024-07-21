@@ -5,15 +5,15 @@ import upload from "../../assets/icons/upload.svg";
 import mohan from "../../assets/images/Mohan-muruge.jpg";
 import "../../styles/partials/global.scss";
 import "./Navbar.scss";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
       <section className="nav">
-        <Link to="/">
+        <NavLink to="/">
           <img src={BrainFlixLogo} className="nav__logo" alt="brainflix-logo" />
-        </Link>
+        </NavLink>
         <div className="nav__form-container">
           <form className="nav__search">
             <input
@@ -23,12 +23,12 @@ function Navbar() {
             />
             <img src={search} className="nav__search-icon" />
           </form>
-          <img src={mohan} className="nav__mohan-image" />
+          <img src={mohan} className="nav__user-image" />
 
-          <Link to="/upload" className="nav__button">
+          <NavLink to="/upload" className="nav__button">
             <img src={upload} className="nav__upload-icon" />
             UPLOAD
-          </Link>
+          </NavLink>
         </div>
       </section>
     </>

@@ -3,10 +3,6 @@ import "./VideoList.scss";
 import { Link } from "react-router-dom";
 
 const VideoList = ({ videos }) => {
-  // const newVideoList = videos.filter((video) => {
-  //   return video.id !== currentVideo.id;
-  // });
-
   return (
     <section>
       <h2 className="video-heading">NEXT VIDEOS</h2>
@@ -14,7 +10,7 @@ const VideoList = ({ videos }) => {
         {videos.map((video) => {
           return (
             <Link
-              to={`videos/${video.id}`}
+              to={`/videos/${video.id}`}
               key={video.id}
               className="video-list__item"
             >
