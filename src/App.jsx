@@ -10,12 +10,13 @@ import UploadPage from "./pages/UploadPage/UploadPage";
 function App() {
   const [videos, setVideos] = useState([]);
   const [currentId, setCurrentId] = useState();
-  const api_key = "411e88d0-a205-4e56-a9c5-66787f2553c5";
-  const url = "https://unit-3-project-api-0a5620414506.herokuapp.com/";
+
+  const base_url = import.meta.env.VITE_APP_BASE_URL;
 
   useEffect(() => {
     const getVideosData = async () => {
-      const response = await axios.get(`${url}videos?api_key=${api_key}`);
+      // const response = await axios.get(`${url}videos?api_key=${api_key}`);
+      const response = await axios.get(`${base_url}/videos`);
       setVideos(response.data);
       setCurrentId(response.data[0].id);
     };
@@ -39,8 +40,7 @@ function App() {
             path="/videos/:id"
             element={
               <HomePage
-                url={url}
-                api_key={api_key}
+                base_url={base_url}
                 setCurrentId={setCurrentId}
                 videos={newVideoList}
               />

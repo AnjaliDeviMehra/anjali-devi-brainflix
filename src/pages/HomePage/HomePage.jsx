@@ -6,12 +6,12 @@ import VideoDetails from "../../components/VideoDetails/VideoDetails";
 import VideoPlayer from "../../components/VideoPlayer/VideoPlayer";
 import VideoList from "../../components/VideoList/VideoList";
 
-const HomePage = ({ setCurrentId, api_key, url, videos }) => {
+const HomePage = ({ setCurrentId, base_url, videos }) => {
   const [currentVideo, setCurrentVideo] = useState(null);
   const { id } = useParams();
 
   const getVideo = async () => {
-    const response = await axios.get(`${url}videos/${id}?api_key=${api_key}`);
+    const response = await axios.get(`${base_url}/videos/${id}`);
     setCurrentVideo(response.data);
   };
 
