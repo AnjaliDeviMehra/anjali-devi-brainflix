@@ -3,8 +3,8 @@ import "./UploadPage.scss";
 import "../../styles/partials/global.scss";
 import upload_video from "../../assets/images/Upload-video-preview.jpg";
 import publish from "../../assets/icons/publish.svg";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { faker } from "@faker-js/faker";
 
 const UploadPage = ({ base_url }) => {
   const [title, setTitle] = useState();
@@ -15,7 +15,27 @@ const UploadPage = ({ base_url }) => {
       await axios.post(`${base_url}/videos`, {
         title: title,
         description: description,
+        channel: faker.person.fullName(),
         image: `${base_url}/images/Upload-video-preview.jpg`,
+        views: faker.number.int({ min: 100, max: 1000 }),
+        likes: faker.number.int({ min: 100, max: 1000 }),
+        timestamp: 1691471862000,
+        comments: [
+          {
+            id: faker.string.uuid(),
+            name: faker.person.fullName(),
+            comment: faker.lorem.sentence(),
+            likes: 0,
+            timestamp: 1691731062000,
+          },
+          {
+            id: faker.string.uuid(),
+            name: faker.person.fullName(),
+            comment: faker.lorem.sentence(),
+            likes: 0,
+            timestamp: 1691731062000,
+          },
+        ],
       });
     } catch (e) {
       console.log(e);
