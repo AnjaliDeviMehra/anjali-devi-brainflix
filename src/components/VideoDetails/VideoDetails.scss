@@ -109,10 +109,11 @@
   }
   &__form {
     margin-left: 1rem;
+    flex-grow: 2;
 
     @include tablet {
       display: flex;
-      flex-grow: 2;
+
       width: 100%;
       justify-content: space-between;
     }
