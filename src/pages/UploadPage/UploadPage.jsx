@@ -15,6 +15,7 @@ const UploadPage = ({ base_url }) => {
       await axios.post(`${base_url}/videos`, {
         title: title,
         description: description,
+        image: `${base_url}/images/Upload-video-preview.jpg`,
       });
     } catch (e) {
       console.log(e);
