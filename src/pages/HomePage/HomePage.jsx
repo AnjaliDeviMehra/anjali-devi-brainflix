@@ -10,18 +10,17 @@ const HomePage = ({ setCurrentId, base_url, videos }) => {
   const [currentVideo, setCurrentVideo] = useState(null);
   const { id } = useParams();
 
-  const getVideo = async () => {
-    const response = await axios.get(`${base_url}/videos/${id}`);
-    setCurrentVideo(response.data);
-  };
-
   useEffect(() => {
-    try {
-      getVideo();
-      setCurrentId(id);
-    } catch (e) {
-      console.log(e);
-    }
+    const getVideo = async () => {
+      try {
+        const response = await axios.get(`${base_url}/videos/${id}`);
+        setCurrentVideo(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getVideo();
+    setCurrentId(id);
   }, [id]);
 
   return (

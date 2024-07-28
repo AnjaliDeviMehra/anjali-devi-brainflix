@@ -15,7 +15,11 @@ const VideoList = ({ videos }) => {
               className="video-list__item"
             >
               <section className="video-list__container">
-                <img src={video.image} className="video-list__image" />
+                <img
+                  src={video.image}
+                  className="video-list__image"
+                  alt="video preview image"
+                />
               </section>
               <section className="video-list__info">
                 <h2>{video.title}</h2>

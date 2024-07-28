@@ -48,7 +48,7 @@
   }
   &__list-item {
     margin: 0.5rem 0;
-    font: 400 0.7rem/1.25rem "avenir";
+    font: 400 0.7rem/1.25rem "avenir", Arial, sans-serif;
     color: #afafaf;
     display: flex;
 
@@ -98,7 +98,7 @@
     margin-top: 1rem;
   }
   &__user-image {
-    @extend .mohan-image;
+    @extend .user-image;
 
     margin-top: 1.2rem;
 

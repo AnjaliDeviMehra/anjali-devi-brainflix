@@ -18,15 +18,17 @@ function Nav() {
           <form className="nav__search">
             <input
               type="search"
+              name="search"
+              id="serach"
               placeholder="Search"
               className="nav__search-input"
             />
-            <img src={search} className="nav__search-icon" />
+            <img src={search} className="nav__search-icon" alt="search icon" />
           </form>
-          <img src={mohan} className="nav__user-image" />
+          <img src={mohan} className="nav__user-image" alt="user image" />
 
           <NavLink to="/upload" className="nav__button">
-            <img src={upload} className="nav__upload-icon" />
+            <img src={upload} className="nav__upload-icon" alt="upload icon" />
             UPLOAD
           </NavLink>
         </div>

@@ -45,13 +45,21 @@ const VideoDetails = ({ currentVideo }) => {
                 </ul>
                 <ul className="video-info__list">
                   <li className="video-info__list-item">
-                    <img src={views} className="video-info__icon" />
+                    <img
+                      src={views}
+                      className="video-info__icon"
+                      alt="views icon"
+                    />
                     <span className="video-info__review">
                       {currentVideo.views}
                     </span>
                   </li>
                   <li className="video-info__list-item">
-                    <img src={likes} className="video-info__icon" />
+                    <img
+                      src={likes}
+                      className="video-info__icon"
+                      alt="likes icon"
+                    />
                     <span className=" video-info__review">
                       {currentVideo.likes}
                     </span>
@@ -66,7 +74,11 @@ const VideoDetails = ({ currentVideo }) => {
             <section className="add-comments">
               <h2>{currentVideo.comments.length} Comments</h2>
               <div className="add-comments__form-container">
-                <img src={mohan} className="add-comments__user-image" />
+                <img
+                  src={mohan}
+                  className="add-comments__user-image"
+                  alt="user image"
+                />
                 <form className="add-comments__form">
                   <section className="input-section">
                     <label htmlFor="comment" className="input-section__label">
@@ -74,6 +86,8 @@ const VideoDetails = ({ currentVideo }) => {
                     </label>
                     <textarea
                       placeholder="Add a new comment"
+                      name="comment"
+                      id="comment"
                       onBlur={handleChange}
                       onChange={handleChange}
                       className={`input-section__input ${
