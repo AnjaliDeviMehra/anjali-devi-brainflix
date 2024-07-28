@@ -15,7 +15,6 @@ function App() {
 
   useEffect(() => {
     const getVideosData = async () => {
-      // const response = await axios.get(`${url}videos?api_key=${api_key}`);
       const response = await axios.get(`${base_url}/videos`);
       setVideos(response.data);
       setCurrentId(response.data[0].id);
@@ -46,7 +45,7 @@ function App() {
               />
             }
           />
-          <Route path="/upload" element={<UploadPage />} />
+          <Route path="/upload" element={<UploadPage base_url={base_url} />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,13 +1,37 @@
-import React from "react";
+import { useState, useEffect, useRef } from "react";
 import "./UploadPage.scss";
 import "../../styles/partials/global.scss";
 import upload_video from "../../assets/images/Upload-video-preview.jpg";
 import publish from "../../assets/icons/publish.svg";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const UploadPage = () => {
-  const handleClick = () => {
-    alert("Video Uploaded");
+const UploadPage = ({ base_url }) => {
+  const [title, setTitle] = useState();
+  const [description, setDescription] = useState();
+
+  const postData = async (title, description) => {
+    try {
+      await axios.post(`${base_url}/videos`, {
+        title: title,
+        description: description,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const handleChange = (e) => {
+    if (e.target.name === "title") {
+      setTitle(e.target.value);
+    } else if (e.target.name === "description") {
+      setDescription(e.target.value);
+    }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    postData(title, description);
+    e.target.reset();
   };
 
   return (
@@ -22,7 +46,7 @@ const UploadPage = () => {
             alt="video thumbnail"
           />
         </div>
-        <form className="upload__form">
+        <form className="upload__form" onSubmit={handleSubmit}>
           <label htmlFor="title">
             <h2 className="upload__label">TITLE YOUR VIDEO</h2>
           </label>
@@ -32,7 +56,9 @@ const UploadPage = () => {
             id="title"
             name="title"
             className="upload__input"
+            onChange={handleChange}
           />
+
           <label htmlFor="description" className="upload__label">
             <h2 className="upload__label">ADD A VIDEO DESCRIPTION</h2>
           </label>
@@ -42,16 +68,20 @@ const UploadPage = () => {
             name="description"
             className="upload__input"
             rows="5"
+            onChange={handleChange}
           ></textarea>
+
+          <div className="upload__links">
+            <button type="submit" className="upload__publish">
+              <img src={publish} alt="publish icon" className="upload__icon" />
+              PUBLISH
+            </button>
+            <button type="reset" className="upload__cancel">
+              CANCEL
+            </button>
+          </div>
         </form>
       </section>
-      <div className="upload__links">
-        <Link className="upload__publish" to="/" onClick={handleClick}>
-          <img src={publish} alt="publish icon" className="upload__icon" />
-          PUBLISH
-        </Link>
-        <Link className="upload__cancel">CANCEL</Link>
-      </div>
     </main>
   );
 };

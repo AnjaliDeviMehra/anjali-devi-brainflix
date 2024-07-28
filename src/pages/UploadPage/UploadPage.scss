@@ -80,7 +80,7 @@
     @extend .button;
     display: inline-block;
     margin-top: 1rem;
-    padding-top: 0.7rem;
+
     order: 2;
 
     @include tablet {
@@ -92,6 +92,8 @@
     @extend .button__icon;
   }
   &__cancel {
+    border: none;
+    background: none;
     color: #0095ff;
     text-decoration: none;
     font: $mobile-label;
